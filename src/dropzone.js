@@ -1866,7 +1866,7 @@ Dropzone.dataURItoBlob = function (dataURI) {
   let mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
 
   // write the bytes of the string to an ArrayBuffer
-  let ab = new ArrayBuffer(byteString.length);
+  let ab = byteString.length;
   let ia = new Uint8Array(ab);
   for (
     let i = 0, end = byteString.length, asc = 0 <= end;
@@ -1877,7 +1877,7 @@ Dropzone.dataURItoBlob = function (dataURI) {
   }
 
   // write the ArrayBuffer to a blob
-  return new Blob([ab], { type: mimeString });
+  return new Blob([ia], { type: mimeString });
 };
 
 // Returns an array without the rejected item
